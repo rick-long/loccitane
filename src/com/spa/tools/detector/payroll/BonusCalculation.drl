@@ -1,0 +1,36 @@
+package com.spa.bonus.drl
+import com.spa.plugin.bonus;
+
+query "query fact count"
+	BonusAdapter();
+end
+
+rule "Treatment - range >= 20000"
+   no-loop true
+   when
+      $bonusAdapter : BonusAdapter (bonusType=='CA-TREATMENT',totalSales.doubleValue() >= targetAmount.doubleValue(),totalSales.doubleValue() >= targetAmount.doubleValue())
+   
+   then
+      $payrollBonusVO.setBonus(new Double($payrollBonusVO.getTotalSales() * 0.02));
+      update($payrollBonusVO);
+end
+
+rule "Goods - range >= 20000"
+   no-loop true
+   when
+      $payrollBonusVO : PayrollBonusVO (bonusType=='CA-GOODS',totalSales.doubleValue() >= 20000)
+   
+   then
+      $payrollBonusVO.setBonus(new Double($payrollBonusVO.getTotalSales() * 0.015));
+      update($payrollBonusVO);
+end
+
+rule "package - range >= 20000"
+   no-loop true
+   when
+      $payrollBonusVO : PayrollBonusVO (bonusType=='PACKAGE',totalSales.doubleValue() >= 20000)
+   
+   then
+      $payrollBonusVO.setBonus(new Double($payrollBonusVO.getTotalSales() * 0.035));
+      update($payrollBonusVO);
+end

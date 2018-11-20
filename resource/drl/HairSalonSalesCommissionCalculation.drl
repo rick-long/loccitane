@@ -1,0 +1,114 @@
+
+package com.spa.tools.detector.sales
+import org.spa.vo.sales.SalesCommissionCalVO;
+
+query "query fact count"
+	SalesCommissionCalVO();
+end
+
+rule "range 0 upto 8000"
+   no-loop true
+   when
+    	$salesCommissionCalVO :  SalesCommissionCalVO (totalAmount.doubleValue() > 0 && totalAmount.doubleValue() <= 8000)
+   then
+      	$salesCommissionCalVO.setCommissionRate(new Double(0));
+      	update($salesCommissionCalVO);
+end
+
+rule "range 8000 upto 15000"
+   no-loop true
+   when
+    	$salesCommissionCalVO :  SalesCommissionCalVO (totalAmount.doubleValue() > 8000 && totalAmount.doubleValue() <= 15000)
+   then
+      	$salesCommissionCalVO.setCommissionRate(new Double(0.1));
+      	update($salesCommissionCalVO);
+end
+
+rule "range 15000 upto 30000"
+   no-loop true
+   when
+    	$salesCommissionCalVO :  SalesCommissionCalVO (totalAmount.doubleValue() > 15000 && totalAmount.doubleValue() <= 30000)
+   then
+      	$salesCommissionCalVO.setCommissionRate(new Double(0.15));
+      	update($salesCommissionCalVO);
+end
+rule "range 30000 upto 45000"
+   no-loop true
+   when
+    	$salesCommissionCalVO :  SalesCommissionCalVO (totalAmount.doubleValue() > 30000 && totalAmount.doubleValue() <= 45000)
+   then
+      	$salesCommissionCalVO.setCommissionRate(new Double(0.2));
+      	update($salesCommissionCalVO);
+end
+
+rule "range 45000 upto 65000"
+   no-loop true
+   when
+    	$salesCommissionCalVO :  SalesCommissionCalVO (totalAmount.doubleValue() > 45000 && totalAmount.doubleValue() <= 65000)
+   then
+      	$salesCommissionCalVO.setCommissionRate(new Double(0.25));
+      	update($salesCommissionCalVO);
+end
+
+rule "range 65000 upto 80000"
+   no-loop true
+   when
+    	$salesCommissionCalVO :  SalesCommissionCalVO (totalAmount.doubleValue() > 65000 && totalAmount.doubleValue() <= 80000)
+   then
+      	$salesCommissionCalVO.setCommissionRate(new Double(0.28));
+      	update($salesCommissionCalVO);
+end
+
+rule "range 80000 upto 90000"
+   no-loop true
+   when
+    	$salesCommissionCalVO :  SalesCommissionCalVO (totalAmount.doubleValue() > 80000 && totalAmount.doubleValue() <= 90000)
+   then
+      	$salesCommissionCalVO.setCommissionRate(new Double(0.3));
+      	update($salesCommissionCalVO);
+end
+
+rule "range 90000 upto 100000"
+   no-loop true
+   when
+    	$salesCommissionCalVO :  SalesCommissionCalVO (totalAmount.doubleValue() > 90000 && totalAmount.doubleValue() <= 100000)
+   then
+      	$salesCommissionCalVO.setCommissionRate(new Double(.32));
+      	update($salesCommissionCalVO);
+end
+
+rule "range 100000 upto 110000"
+   no-loop true
+   when
+    	$salesCommissionCalVO :  SalesCommissionCalVO (totalAmount.doubleValue() > 100000 && totalAmount.doubleValue() <= 110000)
+   then
+      	$salesCommissionCalVO.setCommissionRate(new Double(0.34));
+      	update($salesCommissionCalVO);
+end
+
+rule "range 110000 upto 120000"
+   no-loop true
+   when
+    	$salesCommissionCalVO :  SalesCommissionCalVO (totalAmount.doubleValue() > 110000 && totalAmount.doubleValue() <= 120000)
+   then
+      	$salesCommissionCalVO.setCommissionRate(new Double(0.36));
+      	update($salesCommissionCalVO);
+end
+
+rule "range 120000 upto 130000"
+   no-loop true
+   when
+    	$salesCommissionCalVO :  SalesCommissionCalVO (totalAmount.doubleValue() > 120000 && totalAmount.doubleValue() <= 130000)
+   then
+      	$salesCommissionCalVO.setCommissionRate(new Double(0.38));
+      	update($salesCommissionCalVO);
+end
+
+rule "above 130000"
+   no-loop true
+   when
+    	$salesCommissionCalVO :  SalesCommissionCalVO (totalAmount.doubleValue() > 130000)
+   then
+      	$salesCommissionCalVO.setCommissionRate(new Double(0.4));
+      	update($salesCommissionCalVO);
+end

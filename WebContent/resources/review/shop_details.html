@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>...</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div class="rat-content rat-detail">
+    <table>
+        <tr class="rat-title">
+            <td class="date">Date</td>
+            <td class="custom-name">Custom Name</td>
+            <td class="serve-rat">Customer Service Rating</td>
+            <td class="cle-rat">Cleanliness Rating</td>
+            <td class="review-text">Review Text</td>
+        </tr>
+        <tr class="detail-content">
+            <td class="date">Jun/01/2018</td>
+            <td class="custom-name">Lily Cheung</td>
+            <td class="serve-rat"><span>4.8</span> <span class="star" data-bg="yellow" data-score="4.8"></span></td>
+            <td class="cle-rat"><span>4.8</span> <span class="star" data-bg="blue" data-score="4.8"></span></td>
+            <td class="review-text">
+                The technician is very friendly and skillful.
+                <span>Technician is very friendly, skilled,
+                store is very clean, as well
+                as 30% discount.</span>
+            </td>
+        </tr>
+        <tr class="detail-content">
+            <td class="date">Jun/01/2018</td>
+            <td class="custom-name">Lily Cheung</td>
+            <td class="serve-rat"><span>4.8</span> <span class="star" data-bg="yellow" data-score="4.8"></span></td>
+            <td class="cle-rat"><span>4.8</span> <span class="star" data-bg="blue" data-score="4.8"></span></td>
+            <td class="review-text">
+                The technician is very friendly and skillful.
+                <span>Technician is very friendly, skilled,
+                store is very clean, as well
+                as 30% discount.</span>
+            </td>
+        </tr>
+        <tr class="detail-content">
+            <td class="date">Jun/01/2018</td>
+            <td class="custom-name">Lily Cheung</td>
+            <td class="serve-rat"><span>4.8</span> <span class="star" data-bg="yellow" data-score="4.7"></span></td>
+            <td class="cle-rat"><span>4.8</span> <span class="star" data-bg="blue" data-score="4.8"></span></td>
+            <td class="review-text">
+                The technician is very friendly and skillful.
+                <span>Technician is very friendly, skilled,
+                store is very clean, as well
+                as 30% discount.</span>
+            </td>
+        </tr>
+        <tr class="detail-content">
+            <td class="date">Jun/01/2018</td>
+            <td class="custom-name">Lily Cheung</td>
+            <td class="serve-rat"><span>4.8</span> <span class="star" data-bg="yellow" data-score="4.8"></span></td>
+            <td class="cle-rat"><span>4.8</span> <span class="star" data-bg="blue" data-score="4.7"></span></td>
+            <td class="review-text">
+                The technician is very friendly and skillful.
+                <span>Technician is very friendly, skilled,
+                store is very clean, as well
+                as 30% discount.</span>
+            </td>
+        </tr>
+        <tr class="detail-content">
+            <td class="date">Jun/01/2018</td>
+            <td class="custom-name">Lily Cheung</td>
+            <td class="serve-rat"><span>4.8</span> <span class="star" data-bg="yellow" data-score="4.8"></span></td>
+            <td class="cle-rat"><span>4.8</span> <span class="star" data-bg="blue" data-score="4.8"></span></td>
+            <td class="review-text">
+                The technician is very friendly and skillful.
+                <span>Technician is very friendly, skilled,
+                store is very clean, as well
+                as 30% discount.</span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script src="./js/jquery-1.11.3.min.js"></script>
+<script src="./js/jquery.raty.min.js"></script>
+<script>
+    window.onload = function(){
+
+
+        $('.detail-content').each(function (i) {
+            if (i%2 === 1 && i !== 0) {
+                $(this).addClass('gray');
+            }
+        });
+
+        $('.star').each(function () {
+            var color = $(this).attr('data-bg');
+            $(this).raty({
+                width: 90,
+
+                space : false,
+
+                readOnly: true,
+
+                half     : true,
+
+                starHalf : 'star-half-'+ color +'.svg',
+
+                starOff  : 'star-off.svg',
+
+                starOn   : 'star-on-'+ color +'.svg',
+
+                score: function() {
+                    return $(this).attr('data-score');
+                }
+            });
+        });
+
+        $('.review-text').hover(function () {
+            $(this).find('span').show();
+        },function () {
+            $(this).find('span').hide();
+        })
+    }
+</script>
+
+</body>
+</html>

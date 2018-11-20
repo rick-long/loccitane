@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbook>
+    <worksheet name="Treatments">
+        <section startRow="0" endRow="0">
+        </section>
+        <section startRow="1" endRow="1">
+        </section>
+        <section startRow="2" endRow="2">
+        </section>
+        <loop startRow="3" endRow="3" items="productImportJxlsBeanList" var="product" varType="com.spa.jxlsBean.importDemo.ProductImportJxlsBean">
+            <section startRow="1" endRow="1">
+                <mapping row="1" col="0">product.categoryName</mapping>
+                <mapping row="1" col="1">product.treatmentName</mapping>
+                <mapping row="1" col="2">product.treatmentCode</mapping>
+                <mapping row="1" col="3">product.price</mapping>
+                <mapping row="1" col="4">product.duration</mapping>
+                <mapping row="1" col="5">product.processTime</mapping>
+                <mapping row="1" col="6">product.capacity</mapping>
+                <mapping row="1" col="7">product.additionalPriceShop_1</mapping>
+                <mapping row="1" col="8">product.additionalPriceShop_2</mapping>
+                <mapping row="1" col="9">product.status</mapping>
+            </section>
+            <loopbreakcondition>
+                <rowcheck offset="0">
+                    <cellcheck offset="0"/>
+                </rowcheck>
+            </loopbreakcondition>
+        </loop>
+    </worksheet>
+</workbook>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.spa.controller"/>
+
+    <mvc:annotation-driven>
+        <!-- <mvc:message-converters>
+             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                 <constructor-arg value="utf-8"/>
+             </bean>
+             <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter"/>
+         </mvc:message-converters>-->          
+		<mvc:message-converters register-defaults="true">
+            <bean
+                class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="prefixJson" value="false" />
+                <property name="supportedMediaTypes" value="application/json" />
+                <property name="objectMapper">
+                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                        <property name="serializationInclusion">
+                            <value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_NULL</value>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+		</mvc:message-converters>
+    </mvc:annotation-driven>
+	<!-- 基于session的处理，将提交上来的locale参数进行处理,默认加载语言是en -->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+    	<property name="defaultLocale" value="en_US"/>
+    </bean>
+
+ 	<mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+	        <property name="paramName" value="lang" />
+	    </bean>
+	    <bean class="com.spa.interceptor.SessionInfoInterceptor" />
+        <bean class="com.spa.interceptor.TokenInterceptor" />
+        <bean class="com.spa.interceptor.LanguageInterceptor"/>
+    </mvc:interceptors>
+    <!-- <bean id="localeChangeInterceptor" class="base.test">
+        <property name="paramName" value="lc" />
+    </bean>
+
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" >
+        <property name="interceptors">
+            <list>
+                <ref bean="localeChangeInterceptor" />
+            </list>
+        </property>
+		<property name="mappings">  
+        	<value>/**</value>  
+    	</property>  
+    </bean> -->
+    
+   
+
+    <!-- 视图解析器 -->
+    <mvc:view-resolvers>
+        <mvc:jsp view-class="org.springframework.web.servlet.view.JstlView" prefix="/WEB-INF/jsp/" suffix=".jsp"/>
+    </mvc:view-resolvers>
+
+    <mvc:default-servlet-handler/>
+    <!-- begin 此处设置用来直接访问静态资源文件 -->
+    <mvc:resources location="/resources/" mapping="/resources/**"/>
+	
+    <!-- 支持上传文件 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+</beans>

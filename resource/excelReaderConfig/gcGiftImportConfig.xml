@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbook>
+    <worksheet name="Prepaid">
+        <section startRow="0" endRow="0">
+        </section>
+        <section startRow="1" endRow="1">
+        </section>
+        <loop startRow="2" endRow="2" items="prepaidImportGiftBeanList" var="gift" varType="com.spa.jxlsBean.importDemo.PrepaidImportGiftBean">
+            <section startRow="1" endRow="1">
+                <mapping row="1" col="0">gift.voucherNumber</mapping>
+                <mapping row="1" col="1">gift.voucherName</mapping>
+                <mapping row="1" col="2">gift.cashValue</mapping>
+                <mapping row="1" col="3">gift.issueDate</mapping>
+                <mapping row="1" col="4">gift.expiredDate</mapping>
+                <mapping row="1" col="5">gift.status</mapping>
+            </section>
+            <loopbreakcondition>
+                <rowcheck offset="0">
+                    <cellcheck offset="0"/>
+                </rowcheck>
+            </loopbreakcondition>
+        </loop>
+    </worksheet>
+</workbook>

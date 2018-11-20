@@ -1,0 +1,439 @@
+/*html{background: url("../images/bg_front_memeber-old.jpg");background-size: cover;}*/
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{font:12px/180% Arial, Helvetica, sans-serif!important;color:#5e5e5e; background:url("../images/bg_front_memeber-old.jpg");
+    background-size: cover;}
+
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{display:inline-table}
+*html .clearfix{height:1%}
+.clearfix{display:block}
+*+html .clearfix{min-height:1%}
+.fl{float:left;}
+
+.gradecon{background:white;padding:0;width:100%;margin:0 auto;}
+ul.rev_pro {
+    border-bottom:10px solid #f1f1f1;
+    padding: 10px;
+    margin: 0;
+}
+.rev_pro li{line-height: 20px;
+    padding: 15px 10px;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #DDDDDD;
+    border-radius: 2px;}
+.rev_pro li .revtit{text-align: left;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    padding-top: 7px;}
+.revinp{display: inline-block;}
+
+.level .level_solid{float: left;
+    background-image: url(../images/star_light.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    margin-left: 12px;
+    vertical-align: middle;}
+	
+.level .level_hollow{float: left;
+    background-image: url(../images/star_dark.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    margin-left: 12px;
+    vertical-align: middle;}
+		
+.level .level_solid{background-position:0px 0px;}
+.level .level_hollow {background-position: 0px 0px;}
+.revgrade{margin-left:20px;}
+
+
+.form_for_review {
+    border: 1px solid #E0DCDC;
+    background: #fff;
+    padding:0;
+    width: 750px;
+    margin:25px auto;
+}
+
+
+.banner_for_review {
+    background: #fff;
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.banner_for_review h4 {
+    font-weight: bold;
+    padding:0 0 5px 0;
+    text-align: center;
+    font-size:24px;
+    color: #2A1B1B;
+    letter-spacing: -0.21px;
+}
+
+.revtit {
+    width:150px;
+    display: inline-block;
+}
+
+.form_list_rating {
+    border-top: 10px solid #f0f0f0;
+    width: 100%;
+}
+
+.rev_pro.clearfix h6{
+font-size:16px;
+color: #333333;
+letter-spacing: -0.17px;
+font-weight:600;}
+
+
+.rev_pro.clearfix .form-control {
+    display: block;
+    width: 100%;
+    height:25%;
+    border: 1px solid #BBBBBB;
+    border-radius: 0px;}
+	
+.rev_pro.clearfix .btn.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    border-radius: 2px;
+    width: 374px;
+    height: 48px;
+}
+
+label.assess {
+    width: 10%;
+    text-align: left;
+    display: inline-block;
+    font-weight: normal;
+    margin: 3px 0;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+     border: 1px solid #c5c5c5;
+    background: #fff;
+    font-weight: normal;
+    color: #454545;
+    border-radius: 22px;
+    width: 25px!important;
+    height:25px!important;
+}
+
+.ui-widget.ui-widget-content {
+     border:0; 
+    background: #FFCC7C;
+    border-radius: 75px;
+    height: 20px;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+    top: 0;
+    height: 100%;
+    border-radius: 0 6px 6px 0;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.3em;
+    margin-left: -0.8em!important;
+}
+
+
+@media only screen and (max-width: 1024px)
+{
+.form_for_review {
+    width: 98%;
+    margin:10px auto;
+}
+
+
+
+}
+
+@media only screen and (max-width: 768px)
+{
+.form_for_review {
+    width: 98%;
+    margin:10px auto;
+}
+
+.banner_for_review h4 {    font-size: 18px;
+    padding: 8px 0 0 0;}
+	
+.rev_pro.clearfix .btn.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    border-radius: 2px;
+    width: 67%;
+    height: 48px;
+}
+
+.level .level_solid{float: left;
+    background-image: url(../images/star_light.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 30px;
+    height:30px;
+    background-size: cover;
+    margin-left: 12px;
+    vertical-align: middle;}
+	
+.level .level_hollow{float: left;
+    background-image: url(../images/star_dark.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 30px;
+    height:30px;
+    background-size: cover;
+    margin-left:7px;
+    vertical-align: middle;}
+	
+.rev_pro li {
+    line-height: 20px;
+    padding: 10px;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #DDDDDD;
+    border-radius: 2px;
+}
+
+.rev_pro li .revtit {
+    text-align: left;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    padding-top: 7px;
+}
+
+.NPS_btn {
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+	
+.btn_default {
+border: 1px solid #e3e3e3;
+    padding: 12px 8px;
+    border-radius: 56px;
+    margin: 5px 2px;
+    width: 46px;
+    background: #e3e3e3;
+    color: #999;
+    font-size:18px;
+}
+
+.checked {
+    color: #a46117;
+    border: 1px solid #fed08e;
+    padding: 12px 8px;
+    border-radius: 56px;
+    margin: 5px 2px;
+    width: 46px;
+    background: #fed08e;
+    font-size:18px;
+}		
+	
+}
+
+@media only screen and (max-width: 480px)
+{
+.form_for_review {
+    width: 98%;
+    margin:10px auto;
+}
+
+.banner_for_review h4 {    font-size: 18px;
+    padding: 8px 0 0 0;}
+	
+.rev_pro.clearfix .btn.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    border-radius: 2px;
+    width: 67%;
+    height: 48px;
+}
+
+.level .level_solid{float: left;
+    background-image: url(../images/star_light.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 25px!important;
+    height:25px!important;
+    background-size: cover;
+    margin-left:7px!important;
+    vertical-align: middle;}
+	
+.level .level_hollow{float: left;
+    background-image: url(../images/star_dark.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 25px!important;
+    height:25px!important;
+    background-size: cover;
+    margin-left:7px!important;
+    vertical-align: middle;}
+	
+.rev_pro.clearfix h6 {
+    font-size: 14px!important;
+    color: #333333;
+    letter-spacing: -0.17px;
+    font-weight: 600;
+}
+
+.rev_pro li {
+    line-height: 20px;
+    padding: 8px 10px;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #DDDDDD;
+    border-radius: 2px;
+}	
+
+.rev_pro li .revtit {
+    text-align: left;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    padding-top:4px!important;
+}
+
+.NPS_btn {
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+	
+.btn_default {
+border: 1px solid #e3e3e3;
+    padding: 12px 8px;
+    border-radius: 56px;
+    margin: 5px 2px;
+    width: 46px;
+    background: #e3e3e3;
+    color: #999;
+    font-size:18px;
+}
+
+.checked {
+    color: #a46117;
+    border: 1px solid #fed08e;
+    padding: 12px 8px;
+    border-radius: 56px;
+    margin: 5px 2px;
+    width: 46px;
+    background: #fed08e;
+    font-size: 18px;
+}		
+
+}
+
+@media only screen and (max-width: 360px)
+{
+.form_for_review {
+    width: 98%;
+    margin:10px auto;
+}
+
+.banner_for_review h4 {    font-size: 18px;
+    padding: 8px 0 0 0;}
+	
+.rev_pro.clearfix .btn.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    border-radius: 2px;
+    width: 67%;
+    height: 48px;
+}
+
+.level .level_solid{float: left;
+    background-image: url(../images/star_light.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 25px!important;
+    height:25px!important;
+    background-size: cover;
+    margin-left:7px!important;
+    vertical-align: middle;}
+	
+.level .level_hollow{float: left;
+    background-image: url(../images/star_dark.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 25px!important;
+    height:25px!important;
+    background-size: cover;
+    margin-left:7px!important;
+    vertical-align: middle;}
+	
+.rev_pro.clearfix h6 {
+    font-size: 14px!important;
+    color: #333333;
+    letter-spacing: -0.17px;
+    font-weight: 600;
+}
+
+.rev_pro li {
+    line-height: 20px;
+    padding: 8px 10px;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #DDDDDD;
+    border-radius: 2px;
+}	
+
+.rev_pro li .revtit {
+    text-align: left;
+    display: block;
+    float: left;
+    margin-right:-2px;
+    padding-top:4px!important;
+}
+
+.NPS_btn {
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+	
+.btn_default {
+border: 1px solid #e3e3e3;
+    padding: 12px 8px;
+    border-radius: 56px;
+    margin: 5px 0px;
+    width: 46px;
+    background: #e3e3e3;
+    color: #999;
+    font-size: 18px;
+}
+
+.checked {
+    color: #a46117;
+    border: 1px solid #fed08e;
+    padding: 12px 8px;
+    border-radius: 56px;
+    margin: 5px 0px;
+    width: 46px;
+    background: #fed08e;
+    font-size: 18px;
+}		
+
+}
+

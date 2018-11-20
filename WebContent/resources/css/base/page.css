@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+.page {
+    height: 25px;
+    line-height: 25px;
+    clear: both;
+    position: fixed;
+    bottom: 10px;
+    text-align: center;
+
+}
+
+.bootstrap-dialog .page {
+    height: 25px;
+    line-height: 25px;
+    clear: both;
+    position: fixed;
+    text-align: center;
+    bottom: 3px;
+}
+.page a{display:inline-block;height:25px; line-height:25px;margin-right:6px;}
+.page .prev{background:url(../../img/base/pagination.png) no-repeat left top;display:inline-block;width:25px;*display:inline;zoom:1;}
+.page div{display:inline-block;vertical-align:top;overflow:hidden;*display:inline;zoom:1;}
+.page div a{ background:#eee;border-radius:3px;text-align:center;color:#7d7d7d;font-size:14px;border:1px solid #c9c9c9;padding:0 7px;height:23px;line-height:23px;}
+.page div a:hover{ background:#e38531;border:1px solid #f08300; text-align:center;color:#fff; text-decoration:none;}
+.page div a.active{ background:#e38531;border:1px solid #f08300;text-align:center;color:#fff; text-decoration:none;}
+.page .next{ background:url(../../img/base/pagination.png) no-repeat -96px top;display:inline-block;width:25px;*display:inline;zoom:1;}
+.page .prevactive{background:url(../../img/base/pagination.png) no-repeat -131px top;display:inline-block;width:25px;*display:inline;zoom:1;}
+.page .nextactive{background:url(../../img/base/pagination.png) no-repeat -162px top;display:inline-block;width:25px;*display:inline;zoom:1;}

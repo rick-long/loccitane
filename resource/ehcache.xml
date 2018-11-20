@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="true" monitoring="autodetect">
+         
+	 <diskStore path="java.io.tmpdir" />
+    
+	<!-- <cacheManagerPeerProviderFactory
+		class="net.sf.ehcache.distribution.jgroups.JGroupsCacheManagerPeerProviderFactory" /> -->
+		
+    
+    <defaultCache
+            maxElementsInMemory="100000"
+            eternal="false"
+            timeToIdleSeconds="3600"
+            timeToLiveSeconds="43200"
+            overflowToDisk="true"
+            diskSpoolBufferSizeMB="30"
+            maxElementsOnDisk="10000000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU"
+            statistics="true">
+    </defaultCache>
+    
+    <cache 
+		name="org.hibernate.cache.internal.StandardQueryCache" 
+		maxEntriesLocalHeap="5" 
+		eternal="false" 
+		timeToLiveSeconds="120"
+		statistics="true">
+	</cache>
+	
+	<cache 
+		name="org.hibernate.cache.spi.UpdateTimestampsCache" 
+		maxEntriesLocalHeap="5000" 
+		eternal="true"
+		statistics="true">
+	</cache>
+
+    <cache name="org.spa.model.company.Company"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.company.CompanyProperty"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.company.CompanyPropertyKey"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.user.User"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.user.UserGroup"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.user.CommunicationChannel"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.staff.StaffTreatments"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.staff.StaffHoliday"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.staff.StaffPayrollAttribute"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.shop.Address"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.shop.Shop"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.shop.OpeningHours"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.shop.Phone"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.shop.Room"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.shop.RoomTreatments"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+	<!-- 缓存12小时 -->
+	<cache name="org.spa.model.product.Category"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.product.Brand"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.product.Product"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.product.ProductDescription"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.product.ProductDescriptionKey"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.product.ProductOption"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.product.ProductOptionAttribute"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.product.ProductOptionKey"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.product.ProductOptionSupernumeraryPrice"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.product.Supplier"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.loyalty.LoyaltyLevel"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.loyalty.UserLoyaltyLevel"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+	<cache name="org.spa.model.marketing.MktChannel"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+    
+    <cache name="org.spa.model.privilege.SysRole"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+    <cache name="org.spa.model.privilege.SysResource"
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.payment.PaymentMethod"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.payroll.PayrollAttributeKey"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="org.spa.model.payroll.PayrollTemplate"
+           maxElementsInMemory="1000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="43200"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+</ehcache>
+

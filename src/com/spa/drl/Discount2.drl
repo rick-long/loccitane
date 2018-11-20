@@ -1,0 +1,20 @@
+package com.spa.drl
+import  org.spa.model.discount.DiscountRule;
+import com.spa.plugin.discount.DiscountItemAdapter;
+import java.math.BigDecimal;
+
+global org.slf4j.Logger logger;
+
+rule "TestRule2"
+    when
+        $discountRule : DiscountRule()
+        $discountItemAdapter: DiscountItemAdapter(amount.compareTo(new BigDecimal($discountRule.getDiscountAttribute("TARGET_AMOUNT"))) >= 0);
+
+    then
+        BigDecimal itemAmount =  $discountItemAdapter.getAmount();
+        BigDecimal discountValue = new BigDecimal($discountRule.getDiscountAttribute("DISCOUNT_VALUE"));
+        if($discountItemAdapter.getDiscountValue().compareTo(discountValue) < 0) {
+            $discountItemAdapter.setDiscountValue(discountValue); // 使用最大的折扣
+        }
+        logger.debug("itemAmount:{}, discountRate:{}, discountValue:{}", itemAmount, discountValue);
+end

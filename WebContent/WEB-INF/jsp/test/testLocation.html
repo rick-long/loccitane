@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #shopLocation {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="location">
+
+    <div id="shopLocation"></div>
+
+
+</div>
+
+<script type="text/javascript">
+    function initMap() {
+        var myLatLng = {lat: -25.363, lng: 131.044};
+
+        var map = new google.maps.Map(document.getElementById('shopLocation'), {
+            zoom: 18,
+            center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCljFWdeHKw_Te-3OqmMS9PRenOxtUBMh4&callback=initMap"></script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbook>
+    <worksheet name="Prepaid">
+        <section startRow="0" endRow="0">
+        </section>
+        <section startRow="1" endRow="1">
+        </section>
+        <loop startRow="2" endRow="2" items="prepaidImportJxlsBeanList" var="prepaid" varType="com.spa.jxlsBean.importDemo.PrepaidImportJxlsBean">
+            <section startRow="1" endRow="1">
+                <mapping row="1" col="0">prepaid.shopName</mapping>
+                <mapping row="1" col="1">prepaid.clientUsername</mapping>
+                <mapping row="1" col="2">prepaid.prepaidType</mapping>
+                <mapping row="1" col="3">prepaid.prepaidName</mapping>
+                <mapping row="1" col="4">prepaid.prepaidNumber</mapping>
+                <mapping row="1" col="5">prepaid.prepaidValue</mapping>
+                <mapping row="1" col="6">prepaid.initialValue</mapping>
+                <mapping row="1" col="7">prepaid.remainValue</mapping>
+                <mapping row="1" col="8">prepaid.purchaseDate</mapping>
+                <mapping row="1" col="9">prepaid.expiryDate</mapping>
+                <mapping row="1" col="10">prepaid.commissionRate</mapping>
+                <mapping row="1" col="11">prepaid.productOption</mapping>
+                <mapping row="1" col="12">prepaid.payment1</mapping>
+                <mapping row="1" col="13">prepaid.payment2</mapping>
+                <mapping row="1" col="14">prepaid.payment3</mapping>
+                <mapping row="1" col="15">prepaid.therapists1</mapping>
+                <mapping row="1" col="16">prepaid.therapists2</mapping>
+                <mapping row="1" col="17">prepaid.therapists3</mapping>
+                <mapping row="1" col="18">prepaid.remarks</mapping>
+                <mapping row="1" col="19">prepaid.topUp</mapping>
+                <mapping row="1" col="20">prepaid.free</mapping>
+                <mapping row="1" col="21">prepaid.status</mapping>
+            </section>
+            <loopbreakcondition>
+                <rowcheck offset="0">
+                    <cellcheck offset="0"/>
+                </rowcheck>
+            </loopbreakcondition>
+        </loop>
+    </worksheet>
+</workbook>

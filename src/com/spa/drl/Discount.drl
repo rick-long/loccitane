@@ -1,0 +1,20 @@
+package com.spa.drl
+import  org.spa.model.discount.DiscountRule;
+import com.spa.plugin.discount.DiscountItemAdapter;
+import java.math.BigDecimal;
+
+global org.slf4j.Logger logger;
+
+rule " percentage off discount"
+    when
+        $discountRule : DiscountRule()
+        $discountItemAdapter: DiscountItemAdapter();
+
+    then
+        BigDecimal itemAmount =  $discountItemAdapter.getAmount();
+        BigDecimal discountRate = new BigDecimal($discountRule.getDiscountAttribute("DISCOUNT_VAL"));
+        BigDecimal discountValue = itemAmount.multiply(discountRate).divide(new BigDecimal("100"), 6, BigDecimal.ROUND_HALF_UP);
+        $discountItemAdapter.setDiscountValue(discountValue);
+        System.out.println("$discountItemAdapter discount11:" + $discountItemAdapter.getDiscountValue());
+        logger.debug("itemAmount:{}, discountRate:{}, discountValue:{}", itemAmount, discountRate, discountValue);
+end

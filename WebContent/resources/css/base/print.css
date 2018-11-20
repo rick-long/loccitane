@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+body {
+    font-family:Verdana, Georgia, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #666;
+    background-image: url("../../img/sot_invoice_banner.png") no-repeat top 45% left #fff;
+}
+
+form.form-horizontal {
+    width:100%;
+    margin: 0 auto;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background: #fff;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    font-size:12px;
+}
+
+.table > thead:first-child > tr:first-child > th {
+    border-bottom: 1px solid #aaa;
+    background: #fff;
+    color: #666;  
+}
+
+.table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #aaa;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f1f1f1;
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 0;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding:8px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-color: #ccc;
+}
+
+.form-group {
+    float: left;
+    width:100%;
+    line-height: 25px;
+}
+
+.invoice{width:100%;margin:0 auto;}
+.invoice_logo{width:100%;margin:10px auto;text-align:center;}
+.common-tr{color:#001022;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 30px;
+    height: 50px;
+    padding: 10px 0;
+    border-bottom: 2px solid #001022;
+    border-top: 2px solid #001022;}
+.common-tr ul{padding:0;margin:0;}
+.common-tr ul li{margin: 0;
+    height: 25px;
+    display:inline-block;
+    list-style: none;
+    float: left;
+    padding:3px 6px 3px 0;
+    font-size: 14px;}
+.rec_info h2{font-size:30px;margin:35px;font-family:Georgia;letter-spacing:4px;}
+table.inv_info{width:100%;margin:0;}
+table.inv_info th{text-align:left;}
+table.inv_info td{padding:8px 0;line-height:18px;height:25px;font-size:18px;WORD-WRAP: break-word;text-align:left!important;}
+table.price_info{width:100%;margin:0;border-left: 0;border-right: 0;}
+table.price_info th{background:#fff;color:#666;font-weight:bold;font-size:16px;text-align:left!important;}
+table.price_info td{padding:8px 0;line-height:18px;height:25px;font-size:14px;WORD-WRAP: break-word;text-align:left!important;}
+.common-tr-01{font-size:16px;margin:0 auto;width:100%;margin-top:60px;font-size:18px;float: left;padding-left: 5%;}
+.total_price{font-size: 18px;
+    margin-top:100px;
+    width: 70%;
+    background: url(/resources/img/invoice_banner.png) no-repeat;
+    background-size: contain;
+    height:300px;}
+
+.footer {width: 100%;position: fixed;bottom: 0;border-top:1px solid #ffcb00;}
+.media {padding:10px 0;color:#001022;height:auto;}
+.media ul {width:100%;margin: 0 auto;}
+.media ul li{padding:10px;float: left;list-style: none;line-height:18px;text-align:left;vertical-align:middle;} 
+.media ul li img{padding-top: 1px;vertical-align:middle;text-align: center;}
+.media ul li a{color: #001022;text-decoration: none;text-align: center;}
+.location {float: left;width: 100%;background:#f1f1f1;color: #fff;padding: 10px 0;text-align: center;}
+.location ul {width:100%;margin: 0 auto;}
+.location ul li{padding:0 3px;float: left;list-style: none;height:20px;text-align: center;}
+.voucher_bg {width: 100%;height: auto;float:left;margin-top:50px;}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbook>
+    <worksheet name="Members">
+        <section startRow="0" endRow="0">
+        </section>
+        <section startRow="1" endRow="1">
+        </section>
+        <loop startRow="2" endRow="2" items="memberImportJxlsBeanList" var="member" varType="com.spa.jxlsBean.MemberImportJxlsBean">
+            <section startRow="1" endRow="1">
+                <mapping row="1" col="0">member.shopName</mapping>
+                <mapping row="1" col="1">member.username</mapping>
+                <mapping row="1" col="2">member.password</mapping>
+                <mapping row="1" col="3">member.firstName</mapping>
+                <mapping row="1" col="4">member.lastName</mapping>
+                <mapping row="1" col="5">member.email</mapping>
+                <mapping row="1" col="6">member.gender</mapping>
+                <mapping row="1" col="7">member.mobilePhone</mapping>
+                <mapping row="1" col="8">member.homePhone</mapping>
+                <mapping row="1" col="9">member.country</mapping>
+                <mapping row="1" col="10">member.province</mapping>
+                <mapping row="1" col="11">member.city</mapping>
+                <mapping row="1" col="12">member.address</mapping>
+                <mapping row="1" col="13">member.dateOfBirth</mapping>
+                <mapping row="1" col="14">member.notification</mapping>
+            </section>
+            <loopbreakcondition>
+                <rowcheck offset="0">
+                    <cellcheck offset="0"/>
+                </rowcheck>
+            </loopbreakcondition>
+        </loop>
+    </worksheet>
+</workbook>

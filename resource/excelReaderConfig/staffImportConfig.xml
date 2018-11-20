@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbook>
+    <worksheet name="Staff">
+        <section startRow="0" endRow="0">
+        </section>
+        <section startRow="1" endRow="1">
+        </section>
+        <loop startRow="2" endRow="2" items="staffImportJxlsBeanList" var="staff" varType="com.spa.jxlsBean.importDemo.StaffImportJxlsBean">
+            <section startRow="1" endRow="1">
+                <mapping row="1" col="0">staff.homeShop</mapping>
+                <mapping row="1" col="1">staff.username</mapping>
+                <mapping row="1" col="2">staff.password</mapping>
+                <mapping row="1" col="3">staff.firstName</mapping>
+                <mapping row="1" col="4">staff.lastName</mapping>
+                <mapping row="1" col="5">staff.displayName</mapping>
+                <mapping row="1" col="6">staff.email</mapping>
+                <mapping row="1" col="7">staff.mobile</mapping>
+                <mapping row="1" col="8">staff.roleType</mapping>
+                <mapping row="1" col="9">staff.dob</mapping>
+                <mapping row="1" col="10">staff.gender</mapping>
+                <mapping row="1" col="11">staff.pin</mapping>
+                <mapping row="1" col="12">staff.staffNumber</mapping>
+                <mapping row="1" col="13">staff.joinDate</mapping>
+                <mapping row="1" col="14">staff.employmentType</mapping>
+                <mapping row="1" col="15">staff.standardSalary</mapping>
+                <mapping row="1" col="16">staff.goodsTarget</mapping>
+                <mapping row="1" col="17">staff.treatmentTarget</mapping>
+                <mapping row="1" col="18">staff.commissionGroup</mapping>
+                <mapping row="1" col="19">staff.allowOnlineBooking</mapping>
+                <mapping row="1" col="20">staff.status</mapping>
+            </section>
+            <loopbreakcondition>
+                <rowcheck offset="0">
+                    <cellcheck offset="0"/>
+                </rowcheck>
+            </loopbreakcondition>
+        </loop>
+    </worksheet>
+</workbook>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans  
+		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<bean id="springUtil" class="org.spa.utils.SpringUtil" lazy-init="false"/>
+
+    <context:component-scan base-package="com.spa">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+	<context:component-scan base-package="org.spa">
+    </context:component-scan>
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+                <value>classpath:sysRole.properties</value>
+            </list>
+        </property>
+    </bean>
+
+   <!-- <context:property-placeholder location="classpath:jdbc.properties"/>-->
+
+	<!-- 国际化资源文件绑定，该文件放置在src下 -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+			<list>
+				<value>i18n.common</value>
+				<value>i18n.language</value>
+				<value>i18n.country</value>
+			</list>
+        </property>
+        <property name="fallbackToSystemLocale" value="false"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+		<property name="useCodeAsDefaultMessage" value="true" />
+    </bean>
+	<!-- <bean id="viewResolver"
+    	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <property name="prefix">
+            <value>/WEB-INF/jsp/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean> -->
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="url" value="${jdbc.url}"/>
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+        <property name="initialSize" value="1"/>
+        <property name="maxActive" value="20"/>
+        <property name="minIdle" value="1"/>
+        <property name="maxWait" value="60000"/>
+
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="validationQuery" value="${jdbc.validationsql}"/>
+
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="50"/>
+
+        <!--<property name="filters" value="stat,wall,config" />-->
+        <!--<property name="connectionProperties" value="config.decrypt=true" />-->
+    </bean>
+
+    <!-- create bookingReminderJob and bookingReminderTrigger by william -> 2018-9-10 -->
+    <bean id="bookingReminderJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+        <property name="jobClass" value="com.spa.job.BookingReminderJob" />
+        <property name="durability" value="true" />
+    </bean>
+
+    <bean id="bookingReminderTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="bookingReminderJob" />
+        <property name="cronExpression">
+            <value>0 0 11 * * ?</value>
+            <!--<value>0 0/1 * * * ?</value>-->
+        </property>
+    </bean>
+
+    <!-- create by william -> 2018-8-10 -->
+    <bean id="baseQuartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="configLocation" value="classpath:quartz.properties" />
+        <property name="autoStartup" value="true" />
+        <property name="dataSource" ref="dataSource" />
+        <property name="transactionManager" ref="txManager" />
+
+        <!-- This name is persisted as SCHED_NAME in db. for local testing could change to unique name to avoid collision with dev server -->
+        <property name="schedulerName" value="quartzScheduler" />
+
+        <!-- Will update database cron triggers to what is in this jobs file on each deploy. Replaces all previous trigger and job data that was in the database. YMMV -->
+        <property name="overwriteExistingJobs" value="true" />
+
+        <property name="applicationContextSchedulerContextKey" value="applicationContext" />
+        <property name="jobFactory">
+            <bean class="com.spa.job.AutowiringSpringBeanJobFactory" />
+        </property>
+        <!-- NOTE: Must add both the jobDetail and trigger to the scheduler! -->
+        <property name="jobDetails">
+            <list>
+                <ref bean="bookingReminderJob" />
+            </list>
+        </property>
+        <property name="triggers">
+            <list>
+                <ref bean="bookingReminderTrigger" />
+            </list>
+        </property>
+    </bean>
+    <!-- quartz  end -->
+
+</beans>

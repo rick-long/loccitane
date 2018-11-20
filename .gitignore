@@ -1,0 +1,9 @@
+target/
+.idea/
+classes/
+*.iml
+.project
+.classpath
+.DS_Store
+resource/jdbc.properties
+lib

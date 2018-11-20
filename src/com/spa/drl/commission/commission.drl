@@ -1,0 +1,20 @@
+package com.spa.commission.drl
+import  org.spa.model.commission.CommissionRule;
+import com.spa.plugin.commission.CommissionAdapter;
+import java.math.BigDecimal;
+
+global org.slf4j.Logger logger;
+
+rule "TestRule1"
+    when
+        $commissionRule : CommissionRule()
+		$commissionAdapter : CommissionAdapter();
+    then
+        BigDecimal effectiveValue =  $commissionAdapter.getEffectiveValue();
+        BigDecimal commissionRate=new BigDecimal($commissionRule.getCommissionRate());
+        BigDecimal commission = effectiveValue.multiply(commissionRate).divide(new BigDecimal("100"), 3, BigDecimal.ROUND_HALF_UP); // 百分比
+		$commissionAdapter.setCommission(commission);
+		$commissionAdapter.setCommissionRate(commissionRate);
+        System.out.println("$commissionAdapter get commission:" + $commissionAdapter.getCommission());
+        logger.debug("effectiveValue:{}, commissionRate:{}, commission:{}", effectiveValue, commissionRate, commission);
+end

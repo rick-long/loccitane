@@ -1,0 +1,97 @@
+
+package com.spa.tools.detector.prepaid
+import org.spa.vo.prepaid.PrepaidAddVO;
+
+query "query fact count"
+	PrepaidAddVO();
+end
+
+rule "Cash PACKAGE - range 1 upto 10000"
+   no-loop true
+   when
+      $prepaidAddVO : PrepaidAddVO (prepaidType=='CASH_PACKAGE',packageType!='ALASE',prepaidValue.doubleValue() <= 10000)
+   
+   then
+      $prepaidAddVO.setCommissionRate(new Double(0.015));
+      update($prepaidAddVO);
+end
+
+rule "Cash PACKAGE - range 2 10001-20000"
+   no-loop true
+   when
+      $prepaidAddVO : PrepaidAddVO (prepaidType=='CASH_PACKAGE',packageType!='ALASE',prepaidValue.doubleValue() > 10000 && prepaidValue.doubleValue() <= 20000)
+   
+   then
+      $prepaidAddVO.setCommissionRate(new Double(0.02));
+      update($prepaidAddVO);
+end
+
+rule "Cash PACKAGE - range 3 20001-30000"
+   no-loop true
+   when
+      $prepaidAddVO : PrepaidAddVO (prepaidType=='CASH_PACKAGE',packageType!='ALASE',prepaidValue.doubleValue() > 20000 && prepaidValue.doubleValue() <= 30000)
+   
+   then
+      $prepaidAddVO.setCommissionRate(new Double(0.025));
+      update($prepaidAddVO);
+end
+
+rule "PACKAGE - range 4 above 30000"
+   no-loop true
+   when
+      $prepaidAddVO : PrepaidAddVO (prepaidType=='CASH_PACKAGE',packageType!='ALASE',prepaidValue.doubleValue() > 30000)
+   
+   then
+      $prepaidAddVO.setCommissionRate(new Double(0.03));
+      update($prepaidAddVO);
+end
+
+rule "TREATMENT PACKAGE - range 1 upto 10000"
+   no-loop true
+   when
+      $prepaidAddVO : PrepaidAddVO (prepaidType=='TREATMENT_PACKAGE',prepaidValue.doubleValue() <= 10000)
+   
+   then
+      $prepaidAddVO.setCommissionRate(new Double(0.015));
+      update($prepaidAddVO);
+end
+
+rule "PACKAGE - range 2 10001-20000"
+   no-loop true
+   when
+      $prepaidAddVO : PrepaidAddVO (prepaidType=='TREATMENT_PACKAGE',prepaidValue.doubleValue() > 10000 && prepaidValue.doubleValue() <= 20000)
+   
+   then
+      $prepaidAddVO.setCommissionRate(new Double(0.02));
+      update($prepaidAddVO);
+end
+
+rule "TREATMENT PACKAGE - range 3 20001-30000"
+   no-loop true
+   when
+      $prepaidAddVO : PrepaidAddVO (prepaidType=='TREATMENT_PACKAGE',prepaidValue.doubleValue() > 20000 && prepaidValue.doubleValue() <= 30000)
+   
+   then
+      $prepaidAddVO.setCommissionRate(new Double(0.025));
+      update($prepaidAddVO);
+end
+
+rule "TREATMENT PACKAGE - range 4 above 30000"
+   no-loop true
+   when
+      $prepaidAddVO : PrepaidAddVO (prepaidType=='TREATMENT_PACKAGE',prepaidValue.doubleValue() > 30000)
+   
+   then
+      $prepaidAddVO.setCommissionRate(new Double(0.03));
+      update($prepaidAddVO);
+end
+
+rule "All eLase cash packages"
+   no-loop true
+   when
+      $prepaidAddVO : PrepaidAddVO (prepaidType=='CASH_PACKAGE',packageType =='ALASE')
+   
+   then
+      $prepaidAddVO.setCommissionRate(new Double(0.03));
+      update($prepaidAddVO);
+end
